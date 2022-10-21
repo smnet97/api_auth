@@ -84,34 +84,39 @@ DATABASES = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.users.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.users.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.users.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.users.password_validation.NumericPasswordValidator',
-    },
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+    {
+        'NAME': 'django_password_validators.password_character_requirements.password_validation.PasswordCharacterValidator',
+        # 'OPTIONS': {
+        #     'min_length_digit': 2,
+        #     'min_length_alpha': 6,
+        #     'min_length_special': 3,
+        #     'min_length_lower': 4,
+        #     'min_length_upper': 5,
+        #     'special_characters': "~!@#$%^&*()_+{}\":;'[]"
+        # }
+    },
+        {
         'NAME': 'django_password_validators.password_history.password_validation.UniquePasswordsValidator',
         'OPTIONS': {
-            # How many recently entered passwords matter.
-            # Passwords out of range are deleted.
-            # Default: 0 - All passwords entered by the user. All password hashes are stored.
-            'last_passwords': 5  # Only the last 5 passwords entered by the user
+            'last_passwords': 5 # Only the last 5 passwords entered by the user
         }
     },
 ]
+# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
